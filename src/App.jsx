@@ -58,7 +58,9 @@ const [cakeCut, setCakeCut] = useState(false);
 
 
 const playBirthdayTune = () => {
-  const birthdaySong = new Audio("/birthday-song.mp3");
+ const birthdaySong = new Audio(
+  `${import.meta.env.BASE_URL}birthday-song.mp3`
+);
 
   birthdaySong.volume = 1;
 
@@ -345,7 +347,11 @@ const playBirthdayTune = () => {
 
 <div className="cake-photo-stage">
   <img
-    src={cakeCut ? "/cut-cake.png" : "/whole-cake.png"}
+    src={
+  cakeCut
+    ? `${import.meta.env.BASE_URL}cut-cake.png`
+    : `${import.meta.env.BASE_URL}whole-cake.png`
+}
     alt="Birthday cake"
     className={cakeCut ? "cake-photo cut-photo" : "cake-photo"}
   />
@@ -392,7 +398,7 @@ const playBirthdayTune = () => {
     ) : (
       <div className="cake-celebration">
         <img
-  src="/cut-cake.png"
+ src={`${import.meta.env.BASE_URL}cut-cake.png`}
   alt="Cut birthday cake"
   className="cake-photo celebration-cake"
 />
